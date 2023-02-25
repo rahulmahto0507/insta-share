@@ -68,7 +68,8 @@ class UserProfile extends Component {
   }
 
   renderLoadingView = () => (
-    <div className="loader-container">
+    // eslint-disable-next-line react/no-unknown-property
+    <div className=".loading-view-container " testid="loader">
       <Loader type="TailSpin" color="#4094EF" height={50} width={50} />
     </div>
   )
@@ -84,15 +85,15 @@ class UserProfile extends Component {
         alt="failure view"
         className="failure-view-image"
       />
-      <h1 className="failure-view-heading">
+      <p className="failure-view-heading">
         Something went wrong. Please try again
-      </h1>
+      </p>
       <button
         type="button"
         onClick={this.onClickTryAgainButton}
         className="failure-view-retry-button"
       >
-        Try Again
+        Try again
       </button>
     </div>
   )
@@ -102,7 +103,7 @@ class UserProfile extends Component {
       <div className="camera-container">
         <BiCamera size={30} className="camera-icon" />
       </div>
-      <h1 className="no-posts-heading">No Posts Yet</h1>
+      <h1 className="no-posts-heading">No Posts</h1>
     </div>
   )
 
@@ -137,26 +138,26 @@ class UserProfile extends Component {
               className="user-profile-pic"
             />
 
-            <div className="mobile-user-stats-container">
-              <div className="stats-heading-desc">
+            <ul className="mobile-user-stats-container">
+              <li className="stats-heading-desc">
                 <span className="user-stats-heading">
                   {userProfileData.postsCount}
                 </span>
                 <span className="user-stats-description">posts</span>
-              </div>
-              <div className="stats-heading-desc">
+              </li>
+              <li className="stats-heading-desc">
                 <span className="user-stats-heading">
                   {userProfileData.followersCount}
                 </span>
                 <span className="user-stats-description">followers</span>
-              </div>
-              <div className="stats-heading-desc">
+              </li>
+              <li className="stats-heading-desc">
                 <span className="user-stats-heading">
                   {userProfileData.followingCount}
                 </span>
                 <span className="user-stats-description">following</span>
-              </div>
-            </div>
+              </li>
+            </ul>
 
             <div className="desktop-user-details">
               <h1 className="desktop-user-name-heading">

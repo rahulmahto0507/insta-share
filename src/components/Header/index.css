@@ -11,6 +11,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 40%;
+}
+.nav-list {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
 }
 .nav-heading {
   font: 'Roboto';
@@ -20,7 +28,7 @@
   line-height: 24px;
   color: #262626;
 }
-.nav-link {
+.desktop-tab {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,6 +51,11 @@
 .search-icon {
   color: #989898;
 }
+
+.tab-search-icon {
+  color: #989898;
+}
+
 .search-button {
   width: 34px;
   height: 28px;
@@ -80,13 +93,126 @@
   line-height: 18px;
   color: #4094ef;
 }
-.link {
-  text-decoration: none;
-}
+
 .profile {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
+  color: #262626;
+}
+
+@media screen and (min-width: 576px) {
+  .ham-icon {
+    display: none;
+  }
+}
+.link {
+  text-decoration: none;
+}
+@media screen and (max-width: 576px) {
+  .input,
+  .home,
+  .profile,
+  .logout-button,
+  .search-input {
+    display: none;
+  }
+  .search-button {
+    display: none;
+  }
+  .search-icon {
+    display: none;
+  }
+  .nav-logo {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .nav-item {
+    width: 100%;
+    justify-content: center;
+  }
+  .logo {
+    width: 40px;
+    height: 22px;
+  }
+  .nav-heading {
+    font-family: 'Roboto';
+    font-weight: 500;
+
+    font-size: 15px;
+
+    color: #262626;
+  }
+  .nav-logo {
+    justify-content: space-between;
+    width: 100%;
+  }
+  .nav-list {
+    width: 90%;
+    justify-content: center;
+  }
+}
+.tab {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: #262626;
+}
+.ham-icon {
+  background: transparent;
+  border: none;
+  margin-left: auto;
+}
+.cross-icon {
+  background: transparent;
+  border: none;
+}
+
+.search-tab-button {
+  background: transparent;
+  border: none;
+}
+.tab-logout-button {
+  background-color: #4094ef;
+  border-radius: 4px;
+  border-width: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #ffffff;
+}
+.tab-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style-type: none;
+  width: 90%;
+}
+.tab-search-button {
+  width: 34px;
+  height: 28px;
+  left: 960px;
+  top: 19px;
+  background-color: #dbdbdb;
+  outline: none;
+  border: 1px solid #dbdbdb;
+  border-radius: 0px 2px 2px 0px;
+}
+.tab-search-input {
+  width: 214px;
+  height: 28px;
+  left: 781px;
+  top: 18px;
+  outline: none;
+  border: 1px solid #dbdbdb;
+  border-radius: 2px 0px 0px 2px;
+}
+.tab-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -7,7 +7,6 @@
 }
 
 .user-profile-container {
-  height: 120vh;
   width: 100%;
   background-color: #fafafa;
 }
@@ -85,6 +84,7 @@
 .mobile-user-stats-container {
   display: flex;
   align-items: center;
+  list-style-type: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -125,6 +125,7 @@
   align-items: center;
   margin-top: 5px;
   margin-bottom: 0;
+  list-style-type: none;
 }
 
 .desktop-user-name-heading {

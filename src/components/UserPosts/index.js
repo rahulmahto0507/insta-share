@@ -65,14 +65,9 @@ class UserPosts extends Component {
   }
 
   renderLoadingView = () => (
-    <div className="loader-container">
-      <Loader
-        type="TailSpin"
-        color="#4094EF"
-        height={50}
-        width={50}
-        data-testid="loader"
-      />
+    // eslint-disable-next-line react/no-unknown-property
+    <div className="loader-container" testid="loader">
+      <Loader type="TailSpin" color="#4094EF" height={50} width={50} />
     </div>
   )
 

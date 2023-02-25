@@ -54,7 +54,7 @@ class MyProfile extends Component {
         id: data.profile.id,
         posts: data.profile.posts,
         postsCount: data.profile.posts_count,
-        image: data.profile.profile_pic,
+        profilePic: data.profile.profile_pic,
         stories: data.profile.stories,
         userBio: data.profile.user_bio,
         userId: data.profile.user_id,
@@ -71,13 +71,14 @@ class MyProfile extends Component {
   }
 
   renderLoadingView = () => (
-    <div className="loader-container">
+    // eslint-disable-next-line react/no-unknown-property
+    <div className="loader-container" testid="loader">
       <Loader type="TailSpin" color="#4094EF" height={50} width={50} />
     </div>
   )
 
   onClickTryAgainButton = () => {
-    this.getUserProfileDetails()
+    this.getMyProfileDetails()
   }
 
   renderFailureView = () => (
@@ -87,9 +88,9 @@ class MyProfile extends Component {
         alt="failure view"
         className="failure-view-image"
       />
-      <h1 className="failure-view-heading">
+      <p className="failure-view-heading">
         Something went wrong. Please try again
-      </h1>
+      </p>
       <button
         type="button"
         onClick={this.onClickTryAgainButton}
@@ -129,7 +130,7 @@ class MyProfile extends Component {
     const {myProfileData} = this.state
     const {
       userName,
-      image,
+      profilePic,
       postsCount,
       followersCount,
       followingCount,
@@ -144,39 +145,49 @@ class MyProfile extends Component {
         <div className="user-details-section">
           <h1 className="mobile-user-name">{userName}</h1>
           <div className="user-profile-pic-and-stats-container">
-            <img src={image} alt="my post" className="user-profile-pic" />
+            <img
+              src={profilePic}
+              alt="my profile"
+              className="user-profile-pic"
+            />
 
-            <div className="mobile-user-stats-container">
-              <div className="stats-heading-desc">
+            <ul className="mobile-user-stats-container">
+              <li className="stats-heading-desc">
                 <span className="user-stats-heading">{postsCount}</span>
                 <span className="user-stats-description">posts</span>
-              </div>
-              <div className="stats-heading-desc">
+              </li>
+              <li className="stats-heading-desc">
                 <span className="user-stats-heading">{followersCount}</span>
                 <span className="user-stats-description">followers</span>
-              </div>
-              <div className="stats-heading-desc">
+              </li>
+              <li className="stats-heading-desc">
                 <span className="user-stats-heading">{followingCount}</span>
                 <span className="user-stats-description">following</span>
-              </div>
-            </div>
+              </li>
+            </ul>
 
             <div className="desktop-user-details">
               <h1 className="desktop-user-name-heading">{userName}</h1>
 
-              <div className="desktop-user-stats-container">
-                <p className="stats-type">
-                  <span className="stats-numbers">{postsCount}</span> posts
-                </p>
-                <p className="stats-type">
-                  <span className="stats-numbers">{followersCount}</span>{' '}
-                  followers
-                </p>
-                <p className="stats-type">
-                  <span className="stats-numbers">{followingCount}</span>{' '}
-                  following
-                </p>
-              </div>
+              <ul className="desktop-user-stats-container">
+                <li>
+                  <p className="stats-type">
+                    <span className="stats-numbers">{postsCount}</span> posts
+                  </p>
+                </li>
+                <li>
+                  <p className="stats-type">
+                    <span className="stats-numbers">{followersCount}</span>{' '}
+                    followers
+                  </p>
+                </li>
+                <li>
+                  <p className="stats-type">
+                    <span className="stats-numbers">{followingCount}</span>{' '}
+                    following
+                  </p>
+                </li>
+              </ul>
 
               <p className="user-id">{userId}</p>
               <p className="user-bio">{userBio}</p>
@@ -193,7 +204,7 @@ class MyProfile extends Component {
                   <div className="story-image-container">
                     <img
                       src={story.image}
-                      alt="user story"
+                      alt="my story"
                       className="story-image"
                     />
                   </div>

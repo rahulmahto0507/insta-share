@@ -97,7 +97,8 @@ class UserStories extends Component {
   }
 
   renderLoader = () => (
-    <div className="loader-container">
+    // eslint-disable-next-line react/no-unknown-property
+    <div className="loader-container" testid="loader">
       <Loader type="TailSpin" color="#4094EF" height={50} width={50} />
     </div>
   )
@@ -111,7 +112,7 @@ class UserStories extends Component {
             const {userId, storyUrl, userName} = eachLogo
             return (
               <div className="slick-item" key={userId}>
-                <img className="logo-image" src={storyUrl} alt={userName} />
+                <img className="logo-image" src={storyUrl} alt="user story" />
                 <p className="user-story-name">{userName}</p>
               </div>
             )

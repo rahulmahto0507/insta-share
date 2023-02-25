@@ -3,7 +3,8 @@ import './index.css'
 import {Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
 
-import {BsHeart, BsHeartFill} from 'react-icons/bs'
+import {BsHeart} from 'react-icons/bs'
+import {FcLike} from 'react-icons/fc'
 
 import {FaRegComment} from 'react-icons/fa'
 
@@ -12,15 +13,19 @@ import {BiShareAlt} from 'react-icons/bi'
 class PostCard extends Component {
   state = {
     isLiked: false,
+    likedStatus: false,
   }
 
   toggleLike = async () => {
     await this.setState(prevState => ({isLiked: !prevState.isLiked}))
+
     const jwtToken = Cookies.get('jwt_token')
     const {searchResultDetails} = this.props
     const {postId} = searchResultDetails
 
+    await this.setState(prevState => ({likedStatus: !prevState.likedStatus}))
     const {likedStatus} = this.state
+    console.log(likedStatus)
 
     const likedPostUrl = `https://apis.ccbp.in/insta-share/posts/${postId}/like`
 
@@ -49,8 +54,11 @@ class PostCard extends Component {
       likesCount,
       comments,
       createdAt,
-      postDetails,
+
+      postImage,
+      postCaption,
     } = searchResultDetails
+    console.log(searchResultDetails)
     const {isLiked} = this.state
     return (
       <li className="user-post-list-item">
@@ -66,17 +74,18 @@ class PostCard extends Component {
             <p className="profile-user-name">{userName}</p>
           </div>
         </Link>
-        <img src={postDetails.image_url} alt="post" className="profile-post" />
-        <div className="post-detail-and-stats-container">
+        <img src={postImage} alt="post" className="profile-post" />
+        <p className="post-detail-and-stats-container">
           <div>
             {!isLiked && (
               <button
                 type="button"
                 onClick={this.toggleLike}
                 className="user-post-button"
-                data-testid="likeIcon"
+                // eslint-disable-next-line react/no-unknown-property
+                testid="likeIcon"
               >
-                <BsHeart size={20} color="#262626" />
+                <BsHeart size={20} color="#262626" testid="likeIcon" />
               </button>
             )}
             {isLiked && (
@@ -84,8 +93,10 @@ class PostCard extends Component {
                 type="button"
                 onClick={this.toggleLike}
                 className="user-post-button"
+                // eslint-disable-next-line react/no-unknown-property
+                testid="unLikeIcon"
               >
-                <BsHeartFill size={20} color="red" />
+                <FcLike size={20} color="red" testid="likeIcon" />
               </button>
             )}
             <button type="button" className="user-post-button">
@@ -96,15 +107,19 @@ class PostCard extends Component {
             </button>
           </div>
           <p className="likes">{isLiked ? likesCount + 1 : likesCount} likes</p>
-          <p className="caption">{postDetails.caption}</p>
-          {comments.map(comment => (
-            <p key={comment.user_id} className="comments">
-              <span className="commented-user">{comment.user_name} </span>
-              <span className="user-comment">{comment.comment}</span>
-            </p>
-          ))}
+          <p className="caption">{postCaption}</p>
+          <ul className="comment-list">
+            {comments.map(comment => (
+              <li key={comment.user_id} className="comments">
+                <p>
+                  <span className="commented-user">{comment.user_name} </span>
+                  {comment.comment}
+                </p>
+              </li>
+            ))}
+          </ul>
           <p className="created-date">{createdAt}</p>
-        </div>
+        </p>
       </li>
     )
   }

@@ -2,7 +2,8 @@ import {Component} from 'react'
 
 import {Link} from 'react-router-dom'
 
-import {BsHeart, BsHeartFill} from 'react-icons/bs'
+import {BsHeart} from 'react-icons/bs'
+import {FcLike} from 'react-icons/fc'
 
 import {FaRegComment} from 'react-icons/fa'
 
@@ -83,7 +84,8 @@ class UserInstaPost extends Component {
                 type="button"
                 onClick={this.toggleLike}
                 className="user-post-button"
-                data-testid="likeIcon"
+                // eslint-disable-next-line react/no-unknown-property
+                testid="likeIcon"
               >
                 <BsHeart size={20} color="#262626" />
               </button>
@@ -93,8 +95,10 @@ class UserInstaPost extends Component {
                 type="button"
                 onClick={this.toggleLike}
                 className="user-post-button"
+                // eslint-disable-next-line react/no-unknown-property
+                testid="unLikeIcon"
               >
-                <BsHeartFill size={20} color="red" />
+                <FcLike size={20} color="red" />
               </button>
             )}
             <button type="button" className="user-post-button">

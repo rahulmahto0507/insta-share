@@ -103,29 +103,34 @@ class Login extends Component {
     }
 
     return (
-      <div className="login-container">
-        <img
-          src="https://res.cloudinary.com/dxjuw8lgr/image/upload/v1676531162/Layer_2_ownoex.png"
-          alt="website login"
-          className="login-image"
-        />
-        <div className="login-detail-container">
+      <>
+        <div className="login-container">
           <img
-            src="https://res.cloudinary.com/dq7imhrvo/image/upload/v1643601872/insta%20Shere%20clone/Standard_Collection_8_wutyeq.png"
-            alt="website logo"
-            className="website-logo"
+            src="https://res.cloudinary.com/dxjuw8lgr/image/upload/v1676531162/Layer_2_ownoex.png"
+            alt="website login"
+            className="login-image"
           />
-          <h1 className="website-head">Insta Share</h1>
-          <form className="form-container" onSubmit={this.onSubmitLoginDetails}>
-            <div>{this.renderUsername()}</div>
-            <div>{this.renderPassword()}</div>
-            {showErrorMsg && <p className="error">{errorMsg}</p>}
-            <button className="login-button" type="submit">
-              Login
-            </button>
-          </form>
+          <div className="login-detail-container">
+            <img
+              src="https://res.cloudinary.com/dq7imhrvo/image/upload/v1643601872/insta%20Shere%20clone/Standard_Collection_8_wutyeq.png"
+              alt="website logo"
+              className="website-logo"
+            />
+            <h1 className="website-head">Insta Share</h1>
+            <form
+              className="form-container"
+              onSubmit={this.onSubmitLoginDetails}
+            >
+              <div>{this.renderUsername()}</div>
+              <div>{this.renderPassword()}</div>
+              {showErrorMsg && <p className="error">{errorMsg}</p>}
+              <button className="login-button" type="submit">
+                Login
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
+      </>
     )
   }
 }
