@@ -64,6 +64,8 @@ class UserProfile extends Component {
         userProfileData: formattedData,
         apiStatus: apiStatusConstants.success,
       })
+    } else {
+      this.setState({apiStatus: apiStatusConstants.failure})
     }
   }
 
@@ -92,6 +94,8 @@ class UserProfile extends Component {
         type="button"
         onClick={this.onClickTryAgainButton}
         className="failure-view-retry-button"
+        // eslint-disable-next-line react/no-unknown-property
+        testid="button"
       >
         Try again
       </button>
@@ -138,61 +142,43 @@ class UserProfile extends Component {
               className="user-profile-pic"
             />
 
-            <ul className="mobile-user-stats-container">
-              <li className="stats-heading-desc">
-                <span className="user-stats-heading">
-                  {userProfileData.postsCount}
-                </span>
-                <span className="user-stats-description">posts</span>
-              </li>
-              <li className="stats-heading-desc">
-                <span className="user-stats-heading">
-                  {userProfileData.followersCount}
-                </span>
-                <span className="user-stats-description">followers</span>
-              </li>
-              <li className="stats-heading-desc">
-                <span className="user-stats-heading">
-                  {userProfileData.followingCount}
-                </span>
-                <span className="user-stats-description">following</span>
-              </li>
-            </ul>
-
             <div className="desktop-user-details">
-              <h1 className="desktop-user-name-heading">
+              <p className="desktop-user-name-heading">
                 {userProfileData.userName}
-              </h1>
+              </p>
 
-              <div className="desktop-user-stats-container">
-                <p className="stats-type">
-                  <span className="stats-numbers">
-                    {userProfileData.postsCount}
-                  </span>{' '}
-                  posts
-                </p>
-                <p className="stats-type">
-                  <span className="stats-numbers">
-                    {userProfileData.followersCount}
-                  </span>{' '}
-                  followers
-                </p>
-                <p className="stats-type">
-                  <span className="stats-numbers">
-                    {userProfileData.followingCount}
-                  </span>{' '}
-                  following
-                </p>
-              </div>
+              <ul className="desktop-user-stats-container">
+                <li>
+                  <p className="stats-type">
+                    <span className="stats-numbers">
+                      {userProfileData.postsCount}
+                    </span>{' '}
+                    posts
+                  </p>
+                </li>
+                <li>
+                  <p className="stats-type">
+                    <span className="stats-numbers">
+                      {userProfileData.followersCount}
+                    </span>{' '}
+                    followers
+                  </p>
+                </li>
+                <li>
+                  <p className="stats-type">
+                    <span className="stats-numbers">
+                      {userProfileData.followingCount}
+                    </span>{' '}
+                    following
+                  </p>
+                </li>
+              </ul>
 
               <p className="user-id">{userProfileData.userId}</p>
               <p className="user-bio">{userProfileData.userBio}</p>
             </div>
           </div>
-          <div className="user-id-bio-container">
-            <p className="user-id">{userProfileData.userId}</p>
-            <p className="user-bio">{userProfileData.userBio}</p>
-          </div>
+
           <div className="user-stories-container">
             <ul className="stories-list-container">
               {userProfileData.stories.map(story => (

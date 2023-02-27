@@ -110,12 +110,16 @@ class UserInstaPost extends Component {
           </div>
           <p className="likes">{isLiked ? likesCount + 1 : likesCount} likes</p>
           <p className="caption">{postDetails.caption}</p>
-          {comments.map(comment => (
-            <p key={comment.user_id} className="comments">
-              <span className="commented-user">{comment.user_name} </span>
-              <span className="user-comment">{comment.comment}</span>
-            </p>
-          ))}
+          <ul>
+            {comments.map(comment => (
+              <li className="comment-list">
+                <p key={comment.user_id} className="comments">
+                  <span className="commented-user">{comment.user_name} </span>
+                  <span className="user-comment">{comment.comment}</span>
+                </p>
+              </li>
+            ))}
+          </ul>
           <p className="created-date">{createdAt}</p>
         </div>
       </li>

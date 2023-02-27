@@ -11,7 +11,10 @@
   justify-content: center;
   align-items: center;
 }
-
+.alert-img {
+  height: 80px;
+  width: 80px;
+}
 .slick-container {
   width: 80%;
   margin-top: 10px;
@@ -53,10 +56,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  list-style-type: none;
 }
 .loader-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.failure-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.failure-view-heading {
+  font-size: 15px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  color: #262626;
 }

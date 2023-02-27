@@ -81,18 +81,6 @@
   align-items: center;
 }
 
-.mobile-user-stats-container {
-  display: flex;
-  align-items: center;
-  list-style-type: none;
-}
-
-@media screen and (min-width: 768px) {
-  .mobile-user-stats-container {
-    display: none;
-  }
-}
-
 .stats-heading-desc {
   display: flex;
   flex-direction: column;

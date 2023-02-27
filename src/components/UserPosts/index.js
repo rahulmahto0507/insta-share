@@ -57,9 +57,7 @@ class UserPosts extends Component {
         apiStatus: apiStatusConstants.success,
         userPosts: updatedData,
       })
-    }
-
-    if (response.status === 401) {
+    } else {
       this.setState({apiStatus: apiStatusConstants.failure})
     }
   }
@@ -78,16 +76,18 @@ class UserPosts extends Component {
   renderFailureView = () => (
     <div className="failure-view">
       <img
-        src="https://res.cloudinary.com/dvmp5vgbm/image/upload/v1662435108/InstaShare/SomethingWentWrong_glggye.png"
+        src="https://res.cloudinary.com/dxjuw8lgr/image/upload/v1677492752/samples/Icon_gxwxru.png"
         alt="failure view"
       />
-      <h1 className="failure-view-heading">
+      <h1 className="failure-view-header">
         Something went wrong. Please try again.
       </h1>
       <button
         type="button"
         onClick={this.onClickTryAgainButton}
         className="failure-view-button"
+        // eslint-disable-next-line react/no-unknown-property
+        testid="button"
       >
         Try again
       </button>

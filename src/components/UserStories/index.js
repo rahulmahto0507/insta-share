@@ -111,10 +111,12 @@ class UserStories extends Component {
           {userStories.map(eachLogo => {
             const {userId, storyUrl, userName} = eachLogo
             return (
-              <div className="slick-item" key={userId}>
-                <img className="logo-image" src={storyUrl} alt="user story" />
-                <p className="user-story-name">{userName}</p>
-              </div>
+              <ul key={userId}>
+                <li className="slick-item">
+                  <img className="logo-image" src={storyUrl} alt="user story" />
+                  <p className="user-story-name">{userName}</p>
+                </li>
+              </ul>
             )
           })}
         </Slider>
@@ -126,10 +128,28 @@ class UserStories extends Component {
     <div className="main-container">{this.renderSlider()}</div>
   )
 
+  onClickTryAgainButton = () => {
+    this.getUserStories()
+  }
+
   renderFailureView = () => (
-    <div className="main-container">
-      <h1>Failure View</h1>
-      <button type="button">Retry</button>
+    <div className="failure-view">
+      <img
+        src="https://res.cloudinary.com/dxjuw8lgr/image/upload/v1677492752/samples/Icon_gxwxru.png"
+        alt="failure view"
+      />
+      <h1 className="failure-view-heading">
+        Something went wrong. Please try again.
+      </h1>
+      <button
+        type="button"
+        onClick={this.onClickTryAgainButton}
+        className="failure-view-button"
+        // eslint-disable-next-line react/no-unknown-property
+        testid="button"
+      >
+        Try again
+      </button>
     </div>
   )
 

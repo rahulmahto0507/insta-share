@@ -54,3 +54,19 @@
   justify-content: center;
   align-items: center;
 }
+.failure-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.failure-view-header {
+  font-size: 15px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  color: #262626;
+}
+.user-posts-view {
+  list-style-type: none;
+}

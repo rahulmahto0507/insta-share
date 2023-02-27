@@ -127,6 +127,8 @@ class Home extends Component {
         type="button"
         onClick={this.onClickTryAgainButton}
         className="failure-view-retry-button"
+        // eslint-disable-next-line react/no-unknown-property
+        testid="button"
       >
         Try again
       </button>

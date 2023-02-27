@@ -151,23 +151,8 @@ class MyProfile extends Component {
               className="user-profile-pic"
             />
 
-            <ul className="mobile-user-stats-container">
-              <li className="stats-heading-desc">
-                <span className="user-stats-heading">{postsCount}</span>
-                <span className="user-stats-description">posts</span>
-              </li>
-              <li className="stats-heading-desc">
-                <span className="user-stats-heading">{followersCount}</span>
-                <span className="user-stats-description">followers</span>
-              </li>
-              <li className="stats-heading-desc">
-                <span className="user-stats-heading">{followingCount}</span>
-                <span className="user-stats-description">following</span>
-              </li>
-            </ul>
-
             <div className="desktop-user-details">
-              <h1 className="desktop-user-name-heading">{userName}</h1>
+              <p className="desktop-user-name-heading">{userName}</p>
 
               <ul className="desktop-user-stats-container">
                 <li>
@@ -193,10 +178,7 @@ class MyProfile extends Component {
               <p className="user-bio">{userBio}</p>
             </div>
           </div>
-          <div className="user-id-bio-container">
-            <p className="user-id">{userId}</p>
-            <p className="user-bio">{userBio}</p>
-          </div>
+
           <div className="user-stories-container">
             <ul className="stories-list-container">
               {stories.map(story => (
