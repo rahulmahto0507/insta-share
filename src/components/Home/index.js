@@ -159,6 +159,7 @@ class Home extends Component {
           enterSearchInput={this.enterSearchInput}
           searchInput={searchInput}
         />
+        <hr className="divider-line" />
         {searchInput !== '' ? (
           <div className=" .user-post-container">{this.renderAllView()}</div>
         ) : (

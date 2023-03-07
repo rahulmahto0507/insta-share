@@ -30,6 +30,9 @@
     width: 100px;
     border-radius: 50px;
   }
+  .user-posts-view {
+    list-style-type: none;
+  }
 }
 
 .slick-prev:before,
@@ -67,6 +70,28 @@
   font-weight: 500;
   color: #262626;
 }
-.user-posts-view {
-  list-style-type: none;
+@media screen and (max-width: 576px) {
+  .user-posts-view {
+    list-style-type: none;
+    border: none;
+    border-top: 0.5px solid #c6c6c8;
+    width: 100%;
+  }
+}
+
+.failure-view-button {
+  background-color: #4094ef;
+  border-radius: 4px;
+  border-width: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #ffffff;
+}
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

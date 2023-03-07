@@ -11,7 +11,18 @@
   align-items: center;
   height: 100vh;
 }
-
+@media screen and (min-width: 768px) {
+  .divider-line {
+    border: none;
+    border-top: 0.5px solid #c6c6c8;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .divider-line {
+    display: none;
+  }
+}
 .failure-view-image {
   width: 260px;
   height: 127px;

@@ -71,7 +71,7 @@ class UserProfile extends Component {
 
   renderLoadingView = () => (
     // eslint-disable-next-line react/no-unknown-property
-    <div className=".loading-view-container " testid="loader">
+    <div className="loading-view-container " testid="loader">
       <Loader type="TailSpin" color="#4094EF" height={50} width={50} />
     </div>
   )
@@ -134,7 +134,6 @@ class UserProfile extends Component {
     return (
       <div className="user-profile-success-view-container">
         <div className="user-details-section">
-          <h1 className="mobile-user-name">{userProfileData.userName}</h1>
           <div className="user-profile-pic-and-stats-container">
             <img
               src={userProfileData.profilePic}
@@ -143,9 +142,7 @@ class UserProfile extends Component {
             />
 
             <div className="desktop-user-details">
-              <p className="desktop-user-name-heading">
-                {userProfileData.userName}
-              </p>
+              <h1 className="user-name-heading">{userProfileData.userName}</h1>
 
               <ul className="desktop-user-stats-container">
                 <li>

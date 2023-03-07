@@ -19,17 +19,12 @@ class UserInstaPost extends Component {
   }
 
   toggleLike = async () => {
-    await this.setState(prevState => ({isLiked: !prevState.isLiked}))
-
     const {userPost} = this.props
     const {postId} = userPost
-    const {isLiked} = this.state
 
     const jwtToken = Cookies.get('jwt_token')
 
-    const likedRequestBody = {
-      like_status: isLiked,
-    }
+    const {likedStatus} = this.state
 
     const likedPostUrl = `https://apis.ccbp.in/insta-share/posts/${postId}/like`
 
@@ -39,13 +34,25 @@ class UserInstaPost extends Component {
         Authorization: `Bearer ${jwtToken}`,
       },
       method: 'POST',
-      body: JSON.stringify(likedRequestBody),
+      body: JSON.stringify({like_status: likedStatus}),
     }
 
     const response = await fetch(likedPostUrl, options)
     const fetchedData = await response.json()
 
     console.log(fetchedData)
+  }
+
+  onClickIncrease = () => {
+    this.setState({isLiked: true})
+
+    this.setState({likedStatus: true}, this.toggleLike)
+  }
+
+  onClickDecrease = () => {
+    this.setState({isLiked: false})
+
+    this.setState({likedStatus: false}, this.toggleLike)
   }
 
   render() {
@@ -61,6 +68,7 @@ class UserInstaPost extends Component {
     } = userPost
 
     const {isLiked} = this.state
+    console.log(isLiked)
 
     return (
       <li className="user-post-list-item">
@@ -79,21 +87,20 @@ class UserInstaPost extends Component {
         <img src={postDetails.image_url} alt="post" className="profile-post" />
         <div className="post-detail-and-stats-container">
           <div>
-            {!isLiked && (
+            {!isLiked ? (
               <button
                 type="button"
-                onClick={this.toggleLike}
+                onClick={this.onClickIncrease}
                 className="user-post-button"
                 // eslint-disable-next-line react/no-unknown-property
                 testid="likeIcon"
               >
                 <BsHeart size={20} color="#262626" />
               </button>
-            )}
-            {isLiked && (
+            ) : (
               <button
                 type="button"
-                onClick={this.toggleLike}
+                onClick={this.onClickDecrease}
                 className="user-post-button"
                 // eslint-disable-next-line react/no-unknown-property
                 testid="unLikeIcon"
@@ -112,10 +119,10 @@ class UserInstaPost extends Component {
           <p className="caption">{postDetails.caption}</p>
           <ul>
             {comments.map(comment => (
-              <li className="comment-list">
-                <p key={comment.user_id} className="comments">
-                  <span className="commented-user">{comment.user_name} </span>
-                  <span className="user-comment">{comment.comment}</span>
+              <li key={comment.user_id} className="comment-list">
+                <p className="user-comment">
+                  <span className="commented-user">{comment.user_name}</span>
+                  {comment.comment}
                 </p>
               </li>
             ))}

@@ -47,7 +47,7 @@ class Header extends Component {
 
     return (
       <>
-        <nav className="nav-item">
+        <div className="nav-item">
           <div className="nav-logo">
             <ul className="nav-list">
               <Link to="/">
@@ -90,7 +90,7 @@ class Header extends Component {
                 <FaSearch className="search-icon" />
               </button>
             </div>
-            <ul className="nav-list">
+            <ul className="link-list">
               <Link to="/" className="link">
                 <li>
                   <p className="home">Home</p>
@@ -112,7 +112,7 @@ class Header extends Component {
               </li>
             </ul>
           </div>
-        </nav>
+        </div>
         {isShowCon && (
           <ul className="tab-list">
             <Link to="/" className="link">

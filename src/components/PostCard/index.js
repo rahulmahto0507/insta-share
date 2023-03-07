@@ -20,6 +20,7 @@ class PostCard extends Component {
     const jwtToken = Cookies.get('jwt_token')
     const {searchResultDetails} = this.props
     const {postId} = searchResultDetails
+
     const {likedStatus} = this.state
     console.log(likedStatus)
 
@@ -74,6 +75,7 @@ class PostCard extends Component {
     const {isLiked} = this.state
     const {counter} = this.state
     const updateCount = likesCount + counter
+    console.log(isLiked)
     return (
       <li className="user-post-list-item">
         <div className="profile-section">
@@ -88,9 +90,8 @@ class PostCard extends Component {
             <h1 className="profile-user-name">{userName}</h1>
           </Link>
         </div>
-
         <img src={postImage} alt="post" className="profile-post" />
-        <p className="post-detail-and-stats-container">
+        <div className="post-detail-and-stats-container">
           <div>
             {!isLiked ? (
               <button
@@ -135,7 +136,7 @@ class PostCard extends Component {
           ))}
 
           <p className="created-date">{createdAt}</p>
-        </p>
+        </div>
       </li>
     )
   }

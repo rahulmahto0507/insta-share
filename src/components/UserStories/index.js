@@ -130,6 +130,7 @@ class UserStories extends Component {
 
   onClickTryAgainButton = () => {
     this.getUserStories()
+    console.log('error')
   }
 
   renderFailureView = () => (
